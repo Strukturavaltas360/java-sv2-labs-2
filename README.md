@@ -1,0 +1,1 @@
+Struktúraváltó gyakorlati feladataim
