@@ -22,8 +22,8 @@ a típusokról, az operátorokról, valamint a szöveges típusról.
 
 ## Típusok és operátorok
 
-* [ ] [Literálok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709837-literalok)
-* [ ] Literálok gyakorlati feladat
+* [x] [Literálok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709837-literalok)
+* [x] Literálok gyakorlati feladat
 * [ ] [Egyszerű típusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10709846-egyszeru-tipusok)
 * [ ] Egyszerű típusok gyakorlati feladat
 * [ ] [Karakter videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/27993708-karakter)
