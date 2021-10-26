@@ -46,8 +46,8 @@ a típusokról, az operátorokról, valamint a szöveges típusról.
 * [x] String alapok gyakorlati feladat
 * [x] [Konkatenáció videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10710386-konkatenacio)
 * [x] Konkatenáció gyakorlati feladat
-* [ ] [Főbb String metódusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10710533-fobb-string-metodusok)
-* [ ] Főbb String metódusok gyakorlati feladat
+* [x] [Főbb String metódusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10710533-fobb-string-metodusok)
+* [x] Főbb String metódusok gyakorlati feladat
 * [ ] [StringBuilder videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10710420-stringbuilder)
 * [ ] StringBuilder gyakorlati feladat
 * [ ] Szövegek elválasztása vesszővel gyakorlati feladat [(Szöveges anyag itt)](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/texts/28335421-szovegek-elvalasztasa-vesszovel)
