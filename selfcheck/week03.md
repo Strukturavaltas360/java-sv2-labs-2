@@ -50,7 +50,7 @@ a típusokról, az operátorokról, valamint a szöveges típusról.
 * [x] Főbb String metódusok gyakorlati feladat
 * [x] [StringBuilder videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10710420-stringbuilder)
 * [x] StringBuilder gyakorlati feladat
-* [x ] Szövegek elválasztása vesszővel gyakorlati feladat [(Szöveges anyag itt)](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/texts/28335421-szovegek-elvalasztasa-vesszovel)
+* [x] Szövegek elválasztása vesszővel gyakorlati feladat [(Szöveges anyag itt)](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/texts/28335421-szovegek-elvalasztasa-vesszovel)
 * [x] [Scanner videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10710394-scanner)
 * [x] Scanner gyakorlati feladat
 * [x] [Szöveg formázása printf-fel videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/10710510-szoveg-formazasa-printf-fel)
@@ -62,7 +62,7 @@ a típusokról, az operátorokról, valamint a szöveges típusról.
 * [x] 2021-10-25 konzultáció gyakorlati feladat
 * [x] 2021-10-26 konzultáció részvétel/videó
 * [x] 2021-10-26 konzultáció gyakorlati feladat
-* [ ] 2021-10-28 konzultáció részvétel/videó
-* [ ] 2021-10-28 konzultáció gyakorlati feladat
-* [ ] 2021-10-29 konzultáció részvétel/videó
-* [ ] 2021-10-29 konzultáció gyakorlati feladat
+* [x] 2021-10-28 konzultáció részvétel/videó
+* [x] 2021-10-28 konzultáció gyakorlati feladat
+* [x] 2021-10-29 konzultáció részvétel/videó
+* [x] 2021-10-29 konzultáció gyakorlati feladat
