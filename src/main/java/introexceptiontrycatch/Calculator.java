@@ -1,6 +1,5 @@
 package introexceptiontrycatch;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calculator {
@@ -48,13 +47,13 @@ public class Calculator {
     public int getNumber(Scanner scanner, String prompt) {
         System.out.print(prompt);
         int i = 0;
+        String st = scanner.nextLine();
         try {
-            i = scanner.nextInt();
+            i = Integer.parseInt(st);
         }
-        catch (InputMismatchException exception) {
+        catch (NumberFormatException exception) {
             System.out.println(String.format("Kivétel: %s", exception.getMessage()));
         }
-        scanner.nextLine();
         return i;
     }
 
