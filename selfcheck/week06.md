@@ -24,8 +24,8 @@ Ezen a héten a kivétel- és fájlkezelést fogjátok alapszinten megismerni.
 * [x] Kötelezően kezelendő kivétel a hívási láncban gyakorlati feladat
 * [x] [Kivétel becsomagolása videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28178010-kivetel-becsomagolasa)
 * [x] Kivétel becsomagolása gyakorlati feladat
-* [ ] [Fájlbeolvasás tesztelése JUnit 5 használatával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28178029-fajlbeolvasas-tesztelese-junit-5-hasznalataval)
-* [ ] Fájlbeolvasás tesztelése JUnit 5 használatával gyakorlati feladat
+* [x] [Fájlbeolvasás tesztelése JUnit 5 használatával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28178029-fajlbeolvasas-tesztelese-junit-5-hasznalataval)
+* [x] Fájlbeolvasás tesztelése JUnit 5 használatával gyakorlati feladat
 * [ ] [Fájl írása videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28178041-fajl-irasa)
 * [ ] Fájl írása gyakorlati feladat
 * [ ] [Fájl írásának tesztelése JUnit 5 használatával videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/28178063-fajl-irasanak-tesztelese-junit-5-hasznalataval)
