@@ -1,0 +1,8 @@
+package interfacedependencyinversion.vaccine;
+
+public enum SelectCase {
+    PREGNANT,
+    WITH_CHRONIC_DISEASE,
+    OLDER_THAN_65_NOT_PREGNANT_WITHOUT_CHRONIC_DISEASE,
+    NOT_OLDER_THAN_65_NOT_PREGNANT_WITHOUT_CHRONIC_DISEASE
+}
