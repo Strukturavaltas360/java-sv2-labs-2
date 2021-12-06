@@ -15,10 +15,10 @@ fogtok megismerkedni.
 * [x] Default interfész metódusok gyakorlati feladat
 * [x] [Statikus interfész metódusok videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593855-statikus-interfesz-metodusok)
 * [x] Statikus interfész metódusok gyakorlati feladat
-* [ ] [Interfészek és az öröklődés viszonya videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593869-interfeszek-es-az-oroklodes-viszonya)
-* [ ] Interfészek és az öröklődés viszonya gyakorlati feladat
-* [ ] [Absztrakt metódusok implementálása felsorolásos típusokban videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593878-absztrakt-metodusok-implementalasa-felsorolasos-tipusokban)
-* [ ] Absztrakt metódusok implementálása felsorolásos típusokban gyakorlati feladat
+* [x] [Interfészek és az öröklődés viszonya videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593869-interfeszek-es-az-oroklodes-viszonya)
+* [x] Interfészek és az öröklődés viszonya gyakorlati feladat
+* [x] [Absztrakt metódusok implementálása felsorolásos típusokban videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593878-absztrakt-metodusok-implementalasa-felsorolasos-tipusokban)
+* [x] Absztrakt metódusok implementálása felsorolásos típusokban gyakorlati feladat
 * [ ] [Állapotgép videó](https://e-learning.training360.com/courses/take/java-se-alapok-java-nyelvi-elemek/lessons/29593882-allapotgep)
 * [ ] Állapotgép gyakorlati feladat
   
