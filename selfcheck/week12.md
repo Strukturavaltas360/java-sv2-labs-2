@@ -24,15 +24,15 @@ Ezen a héten a kollekciókkal fogtok részletesebben megismerkedni.
 
 ## Belső osztályok
 
-* [ ] [Belső osztályok videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/29778400-belso-osztalyok)
-* [ ] Belső osztályok gyakorlati feladat
+* [x] [Belső osztályok videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/29778400-belso-osztalyok)
+* [x] Belső osztályok gyakorlati feladat
 
 ## Műveletek kollekciókkal
 
-* [ ] [Bejárás videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/10769621-bejaras)
-* [ ] Bejárás gyakorlati feladat
-* [ ] [A Comparator és Comparable interfészek videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/10769622-a-comparator-es-comparable-interfeszek)
-* [ ] A Comparator és Comparable interfészek gyakorlati feladat
+* [x] [Bejárás videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/10769621-bejaras)
+* [x] Bejárás gyakorlati feladat
+* [x] [A Comparator és Comparable interfészek videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/10769622-a-comparator-es-comparable-interfeszek)
+* [x] A Comparator és Comparable interfészek gyakorlati feladat
 * [ ] [Keresés videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/10769623-kereses)
 * [ ] Keresés gyakorlati feladat
 * [ ] [Rendezés videó](https://e-learning.training360.com/courses/take/java-se-halado-koll/lessons/10769624-rendezes)
