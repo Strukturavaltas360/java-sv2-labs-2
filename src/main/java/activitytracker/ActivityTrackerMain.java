@@ -6,7 +6,6 @@ import org.mariadb.jdbc.MariaDbDataSource;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class ActivityTrackerMain {
     public static void main(String[] args) {

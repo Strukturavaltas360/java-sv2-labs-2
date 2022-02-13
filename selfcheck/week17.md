@@ -16,7 +16,7 @@ Ezen a héten azt fogjátok megtanulni, hogyan lehet adatbázist kezelni Javabó
 * [x] [Alkalmazás architektúra videó](https://e-learning.training360.com/courses/take/adatbazis-programozas-jpa-technologiaval/lessons/30468764-alkalmazas-architektura)
 * [x] [Tesztadatok előkészítése videó](https://e-learning.training360.com/courses/take/adatbazis-programozas-jpa-technologiaval/lessons/30500444-tesztadatok-elokeszitese)
 * [x] [Generált azonosító lekérdezése videó](https://e-learning.training360.com/courses/take/adatbazis-programozas-jpa-technologiaval/lessons/30468766-generalt-azonosito-lekerdezese)
-* [ ] [Tranzakciókezelés videó](https://e-learning.training360.com/courses/take/adatbazis-programozas-jpa-technologiaval/lessons/30468767-tranzakciokezeles)
+* [x] [Tranzakciókezelés videó](https://e-learning.training360.com/courses/take/adatbazis-programozas-jpa-technologiaval/lessons/30468767-tranzakciokezeles)
 
 ## Konzultációk
 

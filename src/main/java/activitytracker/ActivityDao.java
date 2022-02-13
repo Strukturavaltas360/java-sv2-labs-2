@@ -16,15 +16,38 @@ public class ActivityDao {
         String insert = "INSERT INTO activities (id, start_time, activity_desc, activity_type) VALUES (?,?,?,?)";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setLong(1, activity.getId());
-            ps.setTimestamp(2, Timestamp.valueOf(activity.getStartTime()));
-            ps.setString(3, activity.getDesc());
-            ps.setString(4, activity.getType().name());
-            ps.executeUpdate();
-            return findActivityById(getGeneratedKey(ps));
+            return saveActivity(connection, ps, activity);
         } catch (SQLException sqle) {
             throw new IllegalStateException("SQL error", sqle);
         }
+    }
+
+    private Activity saveActivity(Connection connection, PreparedStatement ps, Activity activity) throws SQLException {
+        connection.setAutoCommit(false);
+        setPsForActivitySave(ps, activity);
+        ps.executeUpdate();
+        activity.setId(getGeneratedKey(ps));
+        try {
+            saveTrackPoints(connection, activity);
+            connection.commit();
+        } catch (SQLException | IllegalArgumentException exception) {
+            connection.rollback();
+            throw exception;
+        }
+        return findActivityById(activity.getId());
+    }
+
+    private void saveTrackPoints(Connection connection, Activity activity) throws SQLException {
+        if (activity.getTrackPoints() != null) {
+            new TrackPointDao(connection).saveTrackPoints(activity.getTrackPoints(), activity.getId());
+        }
+    }
+
+    private void setPsForActivitySave(PreparedStatement ps, Activity activity) throws SQLException {
+        ps.setLong(1, activity.getId());
+        ps.setTimestamp(2, Timestamp.valueOf(activity.getStartTime()));
+        ps.setString(3, activity.getDesc());
+        ps.setString(4, activity.getType().name());
     }
 
     private long getGeneratedKey(PreparedStatement ps) throws SQLException {
@@ -42,7 +65,7 @@ public class ActivityDao {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setLong(1, id);
-            return getActivityFromPs(ps);
+            return getActivityFromPs(connection, ps);
         } catch (SQLException sqle) {
             throw new IllegalStateException("SQL error", sqle);
         }
@@ -55,7 +78,7 @@ public class ActivityDao {
              Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                result.add(readActivity(rs));
+                result.add(readActivity(connection, rs));
             }
         } catch (SQLException sqle) {
             throw new IllegalStateException("SQL error", sqle);
@@ -63,21 +86,24 @@ public class ActivityDao {
         return result;
     }
 
-    private Activity getActivityFromPs(PreparedStatement ps) throws SQLException {
+    private Activity getActivityFromPs(Connection connection, PreparedStatement ps) throws SQLException {
         try (ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {
-                return readActivity(rs);
+                Activity activity = readActivity(connection, rs);
+                return activity;
             } else {
                 throw new IllegalArgumentException("There is no such activity!");
             }
         }
     }
 
-    private Activity readActivity(ResultSet rs) throws SQLException {
-        return new Activity(
+    private Activity readActivity(Connection connection, ResultSet rs) throws SQLException {
+        Activity activity = new Activity(
                 rs.getInt("id"),
                 rs.getTimestamp("start_time").toLocalDateTime(),
                 rs.getString("activity_desc"),
                 Type.valueOf(rs.getString("activity_type")));
+        activity.setTrackPoints(new TrackPointDao(connection).listTrackPoints(activity.getId()));
+        return activity;
     }
 }
