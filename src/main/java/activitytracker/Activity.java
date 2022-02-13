@@ -1,6 +1,7 @@
 package activitytracker;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Activity {
     private int id;
@@ -29,6 +30,19 @@ public class Activity {
 
     public Type getType() {
         return type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Activity activity = (Activity) o;
+        return id == activity.id && Objects.equals(startTime, activity.startTime) && Objects.equals(desc, activity.desc) && type == activity.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, startTime, desc, type);
     }
 
     @Override
