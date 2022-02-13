@@ -12,17 +12,28 @@ public class ActivityDao {
         this.dataSource = dataSource;
     }
 
-    public void saveActivity(Activity activity) {
+    public Activity saveActivity(Activity activity) {
         String insert = "INSERT INTO activities (id, start_time, activity_desc, activity_type) VALUES (?,?,?,?)";
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement ps = connection.prepareStatement(insert)) {
-            ps.setInt(1, activity.getId());
+             PreparedStatement ps = connection.prepareStatement(insert, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setLong(1, activity.getId());
             ps.setTimestamp(2, Timestamp.valueOf(activity.getStartTime()));
             ps.setString(3, activity.getDesc());
             ps.setString(4, activity.getType().name());
             ps.executeUpdate();
+            return findActivityById(getGeneratedKey(ps));
         } catch (SQLException sqle) {
             throw new IllegalStateException("SQL error", sqle);
+        }
+    }
+
+    private long getGeneratedKey(PreparedStatement ps) throws SQLException {
+        try (ResultSet rs = ps.getGeneratedKeys()) {
+            if (rs.next()) {
+                return rs.getLong("id");
+            } else {
+                throw new IllegalStateException("Can not get key after insert!");
+            }
         }
     }
 
@@ -38,7 +49,7 @@ public class ActivityDao {
     }
 
     public List<Activity> listActivities() {
-        String query = "SELECT * FROM activities";
+        String query = "SELECT * FROM activities ORDER BY id";
         List<Activity> result = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement stmt = connection.createStatement();
