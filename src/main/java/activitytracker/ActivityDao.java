@@ -53,7 +53,7 @@ public class ActivityDao {
     private long getGeneratedKey(PreparedStatement ps) throws SQLException {
         try (ResultSet rs = ps.getGeneratedKeys()) {
             if (rs.next()) {
-                return rs.getLong("id");
+                return rs.getLong(1);
             } else {
                 throw new IllegalStateException("Can not get key after insert!");
             }
