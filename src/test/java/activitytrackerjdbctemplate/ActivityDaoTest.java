@@ -52,4 +52,20 @@ class ActivityDaoTest {
 
         assertEquals(activity3, activityDao.findActivityById(3));
     }
+
+        @Test
+    void saveActivity() {
+        activityDao.saveActivity(activity4);
+        activityDao.saveActivity(activity2);
+        activityDao.saveActivity(activity3);
+        LocalDateTime startTime = LocalDateTime.of(2022, 1, 30, 11 ,34, 10);
+        Activity actual = activityDao.saveActivity(new Activity(0, startTime, "test", Type.RUNNING));
+        assertEquals(5, actual.getId());
+        assertEquals(startTime, actual.getStartTime());
+        assertEquals("test", actual.getDesc());
+        assertEquals(Type.RUNNING, actual.getType());
+
+        Activity expected = activityDao.findActivityById(5);
+        assertEquals(expected, actual);
+    }
 }

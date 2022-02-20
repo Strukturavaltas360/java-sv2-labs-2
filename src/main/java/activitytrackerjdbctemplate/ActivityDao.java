@@ -1,6 +1,8 @@
 package activitytrackerjdbctemplate;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -13,9 +15,21 @@ public class ActivityDao {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public void saveActivity(Activity activity) {
-        jdbcTemplate.update("INSERT INTO activities (id, start_time, activity_desc, activity_type) VALUES (?,?,?,?)",
-                activity.getId(), activity.getStartTime(), activity.getDesc(), activity.getType().name());
+    public Activity saveActivity(Activity activity) {
+        String query = "INSERT INTO activities (id, start_time, activity_desc, activity_type) VALUES (?,?,?,?)";
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        jdbcTemplate.update(connection -> prepareStatementReturnGeneratedKeys(connection, query, activity), keyHolder);
+        return findActivityById(keyHolder.getKey().longValue());
+    }
+
+    private PreparedStatement prepareStatementReturnGeneratedKeys(
+            Connection connection, String query, Activity activity) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        ps.setLong(1, activity.getId());
+        ps.setTimestamp(2, Timestamp.valueOf(activity.getStartTime()));
+        ps.setString(3, activity.getDesc());
+        ps.setString(4, activity.getType().name());
+        return ps;
     }
 
     public Activity findActivityById(long id) {
@@ -24,7 +38,7 @@ public class ActivityDao {
     }
 
     public List<Activity> listActivities() {
-        String query = "SELECT * FROM activities";
+        String query = "SELECT * FROM activities ORDER BY id";
         return jdbcTemplate.query(query, (rs, rowNum) -> readActivity(rs));
     }
 
