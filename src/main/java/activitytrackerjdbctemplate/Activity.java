@@ -49,4 +49,14 @@ public class Activity {
     public int hashCode() {
         return Objects.hash(id, startTime, desc, type);
     }
+
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "id=" + id +
+                ", startTime=" + startTime +
+                ", desc='" + desc + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

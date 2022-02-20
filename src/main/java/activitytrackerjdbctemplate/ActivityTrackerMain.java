@@ -4,14 +4,36 @@ import org.mariadb.jdbc.MariaDbDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ActivityTrackerMain {
     public static void main(String[] args) {
         ActivityTrackerMain main = new ActivityTrackerMain();
         DataSource dataSource = main.getDataSource();
-        main.insertData(dataSource);
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        System.out.println(main.getActivityById(jdbcTemplate, 2));
+        List<Activity> activities = main.getActivities(jdbcTemplate);
+        System.out.println(activities);
+    }
+
+    private List<Activity> getActivities(JdbcTemplate jdbcTemplate) {
+        String query = "SELECT * FROM activities";
+        return jdbcTemplate.query(query, (rs, rowNum) -> readActivity(rs));
+    }
+
+    private Activity getActivityById(JdbcTemplate jdbcTemplate, int id) {
+        String query = "SELECT * FROM activities WHERE id=?";
+        return jdbcTemplate.queryForObject(query, (rs, rowNum) -> readActivity(rs), id);
+    }
+
+    private Activity readActivity(ResultSet rs) throws SQLException {
+        return new Activity(
+                rs.getInt("id"),
+                rs.getTimestamp("start_time").toLocalDateTime(),
+                rs.getString("activity_desc"),
+                Type.valueOf(rs.getString("activity_type")));
     }
 
     private void insertData(DataSource dataSource) {
