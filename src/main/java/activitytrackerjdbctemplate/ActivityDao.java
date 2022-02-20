@@ -19,7 +19,21 @@ public class ActivityDao {
         String query = "INSERT INTO activities (id, start_time, activity_desc, activity_type) VALUES (?,?,?,?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> prepareStatementReturnGeneratedKeys(connection, query, activity), keyHolder);
-        return findActivityById(keyHolder.getKey().longValue());
+        activity.setId(keyHolder.getKey().longValue());
+        try {
+            saveTrackPoints(activity);
+            //todo commit
+        } catch (IllegalArgumentException exception) {
+            //todo rollback
+            throw exception;
+        }
+        return findActivityById(activity.getId());
+    }
+
+    private void saveTrackPoints(Activity activity) {
+        if (activity.getTrackPoints() != null) {
+            new TrackPointDao(jdbcTemplate).saveTrackPoints(activity.getTrackPoints(), activity.getId());
+        }
     }
 
     private PreparedStatement prepareStatementReturnGeneratedKeys(
@@ -43,10 +57,12 @@ public class ActivityDao {
     }
 
     private Activity readActivity(ResultSet rs) throws SQLException {
-        return new Activity(
+        Activity activity = new Activity(
                 rs.getInt("id"),
                 rs.getTimestamp("start_time").toLocalDateTime(),
                 rs.getString("activity_desc"),
                 Type.valueOf(rs.getString("activity_type")));
+        activity.setTrackPoints(new TrackPointDao(jdbcTemplate).listTrackPoints(activity.getId()));
+        return activity;
     }
 }

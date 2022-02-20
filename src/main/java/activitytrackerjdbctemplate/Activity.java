@@ -1,6 +1,7 @@
 package activitytrackerjdbctemplate;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 public class Activity {
@@ -8,6 +9,7 @@ public class Activity {
     private LocalDateTime startTime;
     private String desc;
     private Type type;
+    private List<TrackPoint> trackPoints;
 
     public Activity(long id, LocalDateTime startTime, String desc, Type type) {
         this.id = id;
@@ -34,6 +36,14 @@ public class Activity {
 
     public Type getType() {
         return type;
+    }
+
+    public List<TrackPoint> getTrackPoints() {
+        return trackPoints;
+    }
+
+    public void setTrackPoints(List<TrackPoint> trackPoints) {
+        this.trackPoints = trackPoints;
     }
 
     @Override
